@@ -133,6 +133,27 @@ endsnippet
 # (/* like C */).
 snippet modeline "Vim modeline"
 vim`!v ':set '. (&expandtab ? printf('et sw=%i ts=%i', &sw, &ts) : printf('noet sts=%i sw=%i ts=%i', &sts, &sw, &ts)) . (&tw ? ' tw='. &tw : '') . ':'`
+snippet author.hanwen "Author, for work" b
+/**!
+ * ${1:desc}
+ * Copyright(c) Alibaba Group Holding Limited.
+ * MIT Licensed
+ *
+ * Authors:
+ *   翰文 <hanwen.sah@taobao.com> (http://shepherdwind.com)
+ */
+endsnippet
+
+snippet author.eward "Author, for myself" b
+/**!
+ * chair - examples/helloworld/test/app/proxy/pcreditInfoQuery.test.js
+ * ${1:desc}
+ * Copyright(c) Alibaba Group Holding Limited.
+ * MIT Licensed
+ *
+ * Authors:
+ *   Eward <eward.song@gmail.com> (http://shepherdwind.com)
+ */
 endsnippet
 
 # vim:ft=snippets:
