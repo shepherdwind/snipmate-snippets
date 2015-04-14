@@ -1,0 +1,66 @@
+###########################################################################
+#                               tms snippet                               #
+###########################################################################
+
+global !p
+import time
+def now(snip):
+  snip.rv = int(time.time())
+endglobal
+
+snippet text "_tms_text" b
+$${1:name} = _tms_text('{"name":"$1-`!p now(snip)`","title":"${2:标题}","group":"${3:group}","row":"${4:1}","defaultRow":"${5:1}"}');
+endsnippet
+
+snippet textl "_tms_textLink" b
+$${1:name} = _tms_textLink('{"name":"$1-`!p now(snip)`","title":"${2:标题}","group":"${3:group}","row":"${4:1}","defaultRow":"${5:1}"}');
+endsnippet
+
+snippet php "echo php" b
+<?php
+  $0
+?>
+endsnippet
+
+snippet /echo/ "php echo" r
+<?= ${1:name}; ?>
+endsnippet
+
+snippet /echoi/ "php echo item" r
+<?= $item['${1:text}']; ?>
+endsnippet
+
+snippet custom "_tms_custom" b
+$${1:var} = _tms_custom('{"name":"$1-`!p now(snip)`","title":"${2:title}","group":"${3:group}","row":"${4:10}","defaultRow":"${5:10}", "fields":"${6:href:链接:href}"}');
+$0
+endsnippet
+
+snippet rep "_tms_repeat" b
+_tms_repeat_begin('{"name":"repeat-`!p now(snip)`","row":"${1:6}","group":"${2:group}","title":"${3:title}"}'); 
+$0
+endsnippet
+
+snippet repe "_tms_repeat_end" b
+<?php _tms_repeat_end(); ?>
+endsnippet
+
+snippet auto "_tms_autoExtract" b
+$${1:var} = _tms_autoExtract('{"name":"$1-`!p now(snip)`","title":"${2:title}","group":"${3:group}","row":"${4:10}","defaultRow":"${5:10}", "fields":"${6:href:链接:href}"}');
+$0
+endsnippet
+
+snippet img "text_image" b
+${1:variable} = _tms_image('{"name":"$1-`!p now(snip)`","title":"${2:title}[${3:50x50}]","group":"${3:group}","row":"${4:10}","defaultRow":"${5:10}"}');
+$0
+endsnippet
+
+snippet imgl "text_imageLink" b
+$${1:variable} = _tms_imageLink('{"name":"$1-`!p now(snip)`","title":"${2:title}[${3:50x50}]","group":"${4:group}","row":"${5:10}","defaultRow":"${6:10}"}');
+$0
+endsnippet
+
+snippet each "Foreach loop"
+<?php foreach ($${1:variable} as $${2:key} => $${3:value}) : ?>
+${4}
+<?php endforeach; ?>
+endsnippet
